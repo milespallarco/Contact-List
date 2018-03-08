@@ -6,8 +6,10 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 interface Post {
-    title: string;
-    content: string;
+    Address: string;
+    Email: string;
+    Lastname: string;
+    mobile: number;
 }
 
 @Component({
@@ -27,6 +29,6 @@ export class AppComponent {
     ngOnInit() {
        this.postsCol = this.afs.collection('posts');
        this.posts = this.postsCol.valueChanges();
-       
+
     }
 }
