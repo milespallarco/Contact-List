@@ -43,15 +43,15 @@ export class AppComponent {
 
     ngOnInit() {
        this.postsCol = this.afs.collection('posts');
-    //    this.posts = this.postsCol.valueChanges();
+    //    this.posts = this.postsCol.valueChanges()
        this.posts = this.postsCol.snapshotChanges();
-        .map(actions => {
-            return actions.map(a => {
-                const data = a.payload.doc.data() as Post;
-                const id = a.payload.doc.id;
-                return {id, data};
-            })
-        })
+       .map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Post;
+          const id = a.payload.doc.id;
+          return { id, data };
+        });
+      });
     }
 
     addPost() {
@@ -63,4 +63,7 @@ export class AppComponent {
         this.postDoc = this.afs.doc('posts/'+postId);
         this.post = this.postDoc.valueChanges();
     }
+    deletePost(postId) {
+        this.afs.doc('posts/'+postId).delete();
+      }
 }
