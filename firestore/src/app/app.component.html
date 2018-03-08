@@ -8,9 +8,14 @@
 <input type="submit" value="Add Contact" (click)="addPost()">
 
 <ul *ngFor="Let post of posts | async">
-  <li>
-    <strong>{{ post.Address }}</strong>
+  <li (click)="getPost(post.id)">
+    <strong>{{ post.data.Lastname }} (<a href="#" (click)="deletePost(postid)">delete</a>)</strong>
     <br>
-    {{ post.mobile }}
+    {{ post.data.Firstname }}
   </li>
 </ul>
+
+<h1>A specific post: </h1>
+
+<h3>{{ (post | async)?.Lastname }}</h3>
+<p>{{ (post | async)?.Lastname }}</p>
