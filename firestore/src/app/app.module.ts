@@ -8,6 +8,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { FormsModule } from '@angular/forms';
+
 // Paste in your credentials that you saved earlier
 var firebaseConfig = {
   apiKey: "",
@@ -31,4 +32,5 @@ var firebaseConfig = {
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

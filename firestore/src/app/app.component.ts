@@ -44,14 +44,14 @@ export class AppComponent {
     ngOnInit() {
        this.postsCol = this.afs.collection('posts');
     //    this.posts = this.postsCol.valueChanges()
-       this.posts = this.postsCol.snapshotChanges();
-       .map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as Post;
-          const id = a.payload.doc.id;
-          return { id, data };
-        });
+    this.posts = this.postsCol.snapshotChanges()
+    .map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Post;
+        const id = a.payload.doc.id;
+        return { id, data };
       });
+    });
     }
 
     addPost() {
